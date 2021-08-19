@@ -21,4 +21,18 @@ Assim a versão escolhida  do php será persistida
 Finalmente, execute as imagens:
 docker-compose up -d nginx mysql
 
-Host: localhost:80
+
+# Postman
+Host: localhost:80/api
+
+No Postman, crie uma variável chamada "AccessToken", mas sem valor
+
+## Na request de login
+Na aba Headers, insira em "Autorization" em "KEY" e "Bearer (tokenGeradoAoLogar)" em "VALUE"
+
+## Nas requests
+Na aba Autorization, selecione "Bearer Token" no tipo e insira {{AccessToken}} no campo de token.
+
+Na aba "Tests" insira os comandos abaixo para que o token gerado com o login seja atribuído à variável criada acima:
+var jsonData = pm.response.json();
+pm.environment.set("AccessToken", jsonData.access_token);
