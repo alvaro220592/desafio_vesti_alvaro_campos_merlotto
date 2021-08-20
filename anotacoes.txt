@@ -62,3 +62,23 @@ dentro da classe foi declarada uma var protected e um metodo construtor
 
 na função handle foi feito o 'preset' do header q seria feito no postman
 depois do middleware configurado, vai em kernel e em $middlewareGroups, importa o middleware criado
+
+///////////////
+
+HISTORICO:
+Usarei o recurso de logs do laravel chamado monolog.
+Os logs ficam armazenados em storage/logs mas serão armazenados num arquivo meu 
+Antes, vá em "config/logging" e apague todos os canais a não ser "stack" e "single. Copia o single pra fazer um a partir dele. Mudei o nome e em "nível" deixei só "debug"
+
+Vai no controller desejado, importa o pacote "use Illuminate\Support\Facades\Log", na função desejada e põe "Log::channel('nomeDoLog, q no caso é meu_log')->info("mensagem");
+
+Para um resultado não encontrado por exemplo numa exclusão ou alteração em uma categoria ou produto inexeistente, fiz o seguinte tratamento de erro:
+    Em /app/Exceptions/Handler.php:
+    Dentro da função register foi inserido o código:
+        $this->renderable(function (NotFoundHttpException $e, $request) {
+            return response()->json(["erro" => "Índice não encontrado"], 404);
+        });
+
+Para o update em relação aos logs, foi necessário definir o valor antigo da categoria e o valor novo para serem exibidos na mensagem
+
+FAZER ONDELETE('CASCADE') NOS PRODUTOS

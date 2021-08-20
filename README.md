@@ -36,3 +36,6 @@ Na aba Autorization, selecione "Bearer Token" no tipo e insira {{AccessToken}} n
 Na aba "Tests" insira os comandos abaixo para que o token gerado com o login seja atribuído à variável criada acima:
 var jsonData = pm.response.json();
 pm.environment.set("AccessToken", jsonData.access_token);
+
+# Registros de operações
+Os registros das operações deste sistema, inclusive os relacionados a login/logout estão sendo salvos em "/storage/logs/logs_loja.log" e o recurso utilizado para isto é o Monolog, do próprio Laravel

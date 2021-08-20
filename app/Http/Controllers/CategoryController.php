@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Category;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Log; // para os logs
 
 class CategoryController extends Controller
 {
@@ -14,6 +15,11 @@ class CategoryController extends Controller
      */
     public function index()
     {
+        // Log de registro de operação:
+        $user = auth()->user();
+        
+        Log::channel('logs_loja')->info("Efetuada a exibição das categorias. Usuário: ID=$user->id, NOME=$user->name, EMAIL=$user->email");
+
         return Category::all();
     }
 
@@ -31,6 +37,11 @@ class CategoryController extends Controller
 
         $result = $category->save();
 
+        // Log de registro de operação:
+        $user = auth()->user();
+        
+        Log::channel('logs_loja')->info("Efetuado o cadastro de uma categoria:\"$request->categoria\" Usuário: ID=$user->id, NOME=$user->name, EMAIL=$user->email");
+
         if($result){
             return ["result" => "Dados salvos com sucesso!"];
         }else{
@@ -46,7 +57,14 @@ class CategoryController extends Controller
      */
     public function show($id)
     {
-        return Category::findOrFail($id);
+        $categoria = Category::findOrFail($id);
+
+        // Log de registro de operação:
+        $user = auth()->user();
+        
+        Log::channel('logs_loja')->info("Efetuada a exibição de uma categoria:\"$categoria->categoria\" Usuário: ID=$user->id, NOME=$user->name, EMAIL=$user->email");
+
+        return $categoria;
     }
 
     /**
@@ -58,12 +76,22 @@ class CategoryController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $category = Category::findOrFail($id);
+        $categoria = Category::findOrFail($id);
 
-        $category->categoria = $request->categoria;
+        // Definindo o valor antigo e o novo da categoria antes da alteração para serem exibidos no log
+        $old_cat = $categoria->categoria;
+        $new_cat = $request->categoria;
 
-        $result = $category->save();
+        // Continuando a operação de update
+        $categoria->categoria = $request->categoria;
 
+        $result = $categoria->save();
+
+        // Log de registro de operação:
+        $user = auth()->user();
+        
+        Log::channel('logs_loja')->info("Efetuada a alteração de uma categoria: De \"$old_cat\" para \"$new_cat\". Usuário: ID=$user->id, NOME=$user->name, EMAIL=$user->email");
+        
         if($result){
             return ["result" => "Dados salvos com sucesso!"];
         }else{
@@ -79,9 +107,14 @@ class CategoryController extends Controller
      */
     public function destroy($id)
     {
-        $category = Category::findOrFail($id);
+        $categoria = Category::findOrFail($id);
+        
+        $result = $categoria->delete();
 
-        $result = $category->delete();
+        // Log de registro de operação:
+        $user = auth()->user();
+
+        Log::channel('logs_loja')->info("Efetuada a exclusão de uma categoria:\"$categoria->categoria\" Usuário: ID=$user->id, NOME=$user->name, EMAIL=$user->email");
 
         if($result){
             return ["result" => "Dados deletados com sucesso!"];
