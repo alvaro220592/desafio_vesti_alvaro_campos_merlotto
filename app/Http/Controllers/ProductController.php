@@ -78,28 +78,6 @@ class ProductController extends Controller
             return ["result" => "Erro ao cadastrar"];
         }
     }
-    
-    /* public function teste_upload(ProductRequest $request){
-
-        $imagens = $request->file('imagens');
-        
-        if($request->hasFile('imagens')) {
-
-            // Tratando cada imagem(As validações estão em "App\Http\Requests\ProductRequest")
-            foreach($imagens as $imagem){
-
-                // fazendo um nome único e concatenando com a extensão
-                $nome_imagem = md5($imagem->getClientOriginalName()) . strtotime('now') . "." . $imagem->extension();
-
-                // Salvando em uma pasta
-                $imagem->move(public_path('imagens'), $nome_imagem);
-            }
-
-            // Se ocorreu tudo certo
-            return response()->json(['Imagens inseridas com sucesso']);
-
-        }
-    } */
 
     /**
      * Display the specified resource.
