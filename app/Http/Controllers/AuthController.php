@@ -43,7 +43,7 @@ class AuthController extends Controller
         // se tudo estiver ok, será criado um token:
         $token = $user->createToken($request->email.strtotime("now"))->plainTextToken;
 
-        Log::channel('logs_loja')->info("Efetuado login pelo usuário: EMAIL=$request->email");
+        Log::channel('logs_loja')->info("LOGIN efetuado pelo usuário: EMAIL=$request->email");
 
         return response()->json([
             "access_token" => $token,
@@ -52,6 +52,10 @@ class AuthController extends Controller
     }
 
     public function logout(Request $request){
+
+        $user = auth()->user();
+
+        Log::channel('logs_loja')->info("LOGOUT efetuado pelo usuário: NOME=$user->name, EMAIL=$user->email");
 
         // quebrando o token do usuário
         $request->user()->tokens()->delete();
