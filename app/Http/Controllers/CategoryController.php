@@ -31,11 +31,11 @@ class CategoryController extends Controller
      */
     public function store(Request $request)
     {
-        $category = new Category;
+        $categoria = new Category;
 
-        $category->categoria = $request->categoria;
+        $categoria->categoria = $request->categoria;
 
-        $result = $category->save();
+        $result = $categoria->save();
 
         // Log de registro de operação:
         $user = auth()->user();

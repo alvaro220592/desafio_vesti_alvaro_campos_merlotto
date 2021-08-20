@@ -4,6 +4,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\CategoryController;
+use App\Http\Controllers\ProductController;
 
 /*
 |--------------------------------------------------------------------------
@@ -39,5 +40,24 @@ Route::middleware(['auth:sanctum'])->group(function(){
     // Deletar categoria:
     Route::delete('/categoria/{id}', [CategoryController::class, 'destroy']);
 
+    // cadastro de produto
+    Route::post('/produto', [ProductController::class, 'store']);
+    
+    // Exibição das produtos:
+    Route::get('/produtos', [ProductController::class, 'index']);
+
+    // Exibição de produto específica:
+    Route::get('/produto/{id}', [ProductController::class, 'show']);
+
+    // Update de produto:
+    Route::put('/produto/{id}', [ProductController::class, 'update']);
+
+    // Deletar produto:
+    Route::delete('/produto/{id}', [ProductController::class, 'destroy']);
+
+    // TESTE UPLOAD
+    Route::post('/produto/imagens', [ProductController::class, 'teste_upload']);
+
+    // logout
     Route::post('/logout', [AuthController::class, 'logout']);
 });

@@ -21,8 +21,8 @@ class CreateProductsTable extends Migration
             $table->string('composicao');
             $table->string('tamanho');
             $table->integer('quantidade');
-            $table->json('imagens');
-            $table->foreignId('category_id')->constrained();
+            $table->json('imagens')->nullable();
+            $table->foreignId('category_id')->constrained()->onDelete('cascade');
         });
     }
 

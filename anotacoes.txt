@@ -81,4 +81,4 @@ Para um resultado não encontrado por exemplo numa exclusão ou alteração em u
 
 Para o update em relação aos logs, foi necessário definir o valor antigo da categoria e o valor novo para serem exibidos na mensagem
 
-FAZER ONDELETE('CASCADE') NOS PRODUTOS
+para testar opload de arquivos, tem que selecionar o radio button "form-data" no postman
