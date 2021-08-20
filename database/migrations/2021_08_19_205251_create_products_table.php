@@ -17,7 +17,7 @@ class CreateProductsTable extends Migration
             $table->id();
             $table->timestamps();
             $table->string('nome');
-            $table->string('preco');
+            $table->decimal('preco', 5, 2);
             $table->string('composicao');
             $table->string('tamanho');
             $table->integer('quantidade');

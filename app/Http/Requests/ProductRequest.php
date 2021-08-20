@@ -42,7 +42,7 @@ class ProductRequest extends FormRequest
             'preco.required' => 'O preço é obrigatório',
             'composicao.required' => 'A composição é obrigatória',
             'tamanho.required' => 'O tamanho é obrigatório',
-            'quantidade.required' => 'O quantidade é obrigatória',
+            'quantidade.required' => 'A quantidade é obrigatória',
             'category_id.required' => 'A categoria é obrigatória',
             'mimes' => 'Permitidas imagens apenas de formato .jpg ou .jpeg',
             'max' => 'Máximo máximo permitido de imagens: 3'

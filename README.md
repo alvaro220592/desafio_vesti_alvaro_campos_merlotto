@@ -2,6 +2,14 @@
 Desafio técnico para a elaboração de uma API de cadastro de confecções pelo framework Laravel 8, no ambiente de desenvolvimento Docker(Laradock), pelo servidor web Nginx com autenticação feita com Sanctum através do Laravel Jetstream e Livewire.
 
 # Execução
+Primeiramente, copie o .env.example e em sua cópia faça a seguinte configuração na área do MySQL:
+DB_CONNECTION=mysql
+DB_HOST=mysql
+DB_PORT=3306
+DB_DATABASE=desafio_vesti_alvaro_campos_merlotto
+DB_USERNAME=root
+DB_PASSWORD=root
+
 Na pasta raíz do projeto, clone o repositório Laradock:
 git@github.com:laradock/laradock.git
 

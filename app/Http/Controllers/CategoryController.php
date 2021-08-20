@@ -18,7 +18,7 @@ class CategoryController extends Controller
         // Log de registro de operação:
         $user = auth()->user();
         
-        Log::channel('logs_loja')->info("Efetuada a exibição das categorias. Usuário: ID=$user->id, NOME=$user->name, EMAIL=$user->email");
+        Log::channel('logs_loja')->info("Efetuada a exibição de todas as categorias. Usuário: ID=$user->id, NOME=$user->name, EMAIL=$user->email");
 
         return Category::all();
     }
