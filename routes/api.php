@@ -3,6 +3,7 @@
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthController;
+use App\Http\Controllers\CategoryController;
 
 /*
 |--------------------------------------------------------------------------
@@ -23,7 +24,20 @@ Route::middleware(['auth:sanctum'])->group(function(){
         return $request->user();
     });
 
-    //Route::post('/categoria', [CategoryController::class, 'store']);
+    // cadastro de categoria
+    Route::post('/categoria', [CategoryController::class, 'store']);
+    
+    // Exibição das categorias:
+    Route::get('/categorias', [CategoryController::class, 'index']);
+
+    // Exibição de categoria específica:
+    Route::get('/categoria/{id}', [CategoryController::class, 'show']);
+
+    // Update de categoria:
+    Route::put('/categoria/{id}', [CategoryController::class, 'update']);
+
+    // Deletar categoria:
+    Route::delete('/categoria/{id}', [CategoryController::class, 'destroy']);
 
     Route::post('/logout', [AuthController::class, 'logout']);
 });

@@ -14,7 +14,7 @@ class CategoryController extends Controller
      */
     public function index()
     {
-        //
+        return Category::all();
     }
 
     /**
@@ -25,7 +25,17 @@ class CategoryController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $category = new Category;
+
+        $category->categoria = $request->categoria;
+
+        $result = $category->save();
+
+        if($result){
+            return ["result" => "Dados salvos com sucesso!"];
+        }else{
+            return ["result" => "Erro ao cadastrar"];
+        }
     }
 
     /**
@@ -34,9 +44,9 @@ class CategoryController extends Controller
      * @param  \App\Models\Category  $category
      * @return \Illuminate\Http\Response
      */
-    public function show(Category $category)
+    public function show($id)
     {
-        //
+        return Category::findOrFail($id);
     }
 
     /**
@@ -46,9 +56,19 @@ class CategoryController extends Controller
      * @param  \App\Models\Category  $category
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Category $category)
+    public function update(Request $request, $id)
     {
-        //
+        $category = Category::findOrFail($id);
+
+        $category->categoria = $request->categoria;
+
+        $result = $category->save();
+
+        if($result){
+            return ["result" => "Dados salvos com sucesso!"];
+        }else{
+            return ["result" => "Erro ao alterar"];
+        }
     }
 
     /**
@@ -57,8 +77,16 @@ class CategoryController extends Controller
      * @param  \App\Models\Category  $category
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Category $category)
+    public function destroy($id)
     {
-        //
+        $category = Category::findOrFail($id);
+
+        $result = $category->delete();
+
+        if($result){
+            return ["result" => "Dados deletados com sucesso!"];
+        }else{
+            return ["result" => "Erro ao deletar"];
+        }
     }
 }
