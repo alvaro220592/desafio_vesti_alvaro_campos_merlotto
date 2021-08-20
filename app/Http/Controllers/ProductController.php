@@ -35,9 +35,7 @@ class ProductController extends Controller
         $produto->quantidade = $request->quantidade;
         $produto->category_id = $request->category_id;
         
-        // Salvando a imagem
-        /* $produto->imagens = $request->file('imagens'); */
-        
+        // Salvando a imagem        
         if($request->hasFile('imagens')) {
 
             $imagens = $request->imagens;
@@ -57,10 +55,7 @@ class ProductController extends Controller
                 array_push($imagensParaInserir, $nome_imagem);
             }
 
-            //return response()->json([$imagensParaInserir]);
-
-            // Se ocorreu tudo certo
-            //return response()->json(['Imagens inseridas com sucesso']);
+            $produto->imagens = $imagensParaInserir;
         }
 
         $result = $produto->save();
