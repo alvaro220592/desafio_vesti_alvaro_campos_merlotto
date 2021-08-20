@@ -23,5 +23,7 @@ Route::middleware(['auth:sanctum'])->group(function(){
         return $request->user();
     });
 
+    //Route::post('/categoria', [CategoryController::class, 'store']);
+
     Route::post('/logout', [AuthController::class, 'logout']);
 });
