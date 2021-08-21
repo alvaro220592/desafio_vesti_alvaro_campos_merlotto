@@ -80,7 +80,6 @@ class CategoryController extends Controller
 
         // Definindo o valor antigo e o novo da categoria antes da alteração para serem exibidos no log
         $old_cat = $categoria->categoria;
-        $new_cat = $request->categoria;
 
         // Continuando a operação de update
         $categoria->categoria = $request->categoria;
@@ -90,7 +89,7 @@ class CategoryController extends Controller
         // Log de registro de operação:
         $user = auth()->user();
         
-        Log::channel('logs_loja')->info("Efetuada a alteração de uma categoria: De \"$old_cat\" para \"$new_cat\". Usuário: ID=$user->id, NOME=$user->name, EMAIL=$user->email");
+        Log::channel('logs_loja')->info("Efetuada a alteração de uma categoria: De \"$old_cat\" para \"$request->categoria\". Usuário: ID=$user->id, NOME=$user->name, EMAIL=$user->email");
         
         if($result){
             return ["result" => "Dados salvos com sucesso!"];
