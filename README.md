@@ -2,7 +2,7 @@
 <p> Desafio técnico para a elaboração de uma API de cadastro de confecções pelo framework Laravel 8, no ambiente de desenvolvimento Docker(Laradock), pelo servidor web Nginx com autenticação feita com Sanctum através do Laravel Jetstream e Livewire.</p>
 
 ## Execução
-<p>Primeiramente, copie o arquivo ".env.example" e em sua cópia faça a seguinte configuração na área do MySQL:</p>
+<p>Primeiramente, copie o arquivo <strong>.env.example</strong> e em sua cópia faça a seguinte configuração na área do MySQL:</p>
 
 DB_CONNECTION=mysql<br>
 DB_HOST=mysql<br>
@@ -11,10 +11,10 @@ DB_DATABASE=desafio_vesti_alvaro_campos_merlotto<br>
 DB_USERNAME=root<br>
 DB_PASSWORD=root<br>
 
-<p>Na pasta raíz do projeto, clone o repositório Laradock:
-git@github.com:laradock/laradock.git</p>
+<p>Na pasta raíz do projeto, clone o repositório Laradock:<br>
+git clone git@github.com:laradock/laradock.git</p>
 
-Em /laradock, faça uma cópia do arquivo .env.example chamada ".env".
+Em /laradock, faça uma cópia do arquivo <strong>.env.example</strong> chamada <strong>.env</strong>
 Faça as seguintes alterações:
 Versão do PHP: 7.4
 Versão do MySQL: 5.7
