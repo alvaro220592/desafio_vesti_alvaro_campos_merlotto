@@ -1,5 +1,5 @@
 # desafio_vesti_alvaro_campos_merlotto
-<p> Desafio técnico para a elaboração de uma API de cadastro de confecções pelo framework Laravel 8, no ambiente de desenvolvimento Docker(Laradock), pelo servidor web Nginx com autenticação feita com Sanctum através do Laravel Jetstream e Livewire.</p>
+<p> Desafio técnico para a elaboração de uma API de cadastro de confecções pelo framework Laravel 8 no ambiente de desenvolvimento Docker(Laradock), pelo servidor web Nginx e autenticação feita com Sanctum através do Laravel Jetstream e Livewire.</p>
 
 ## Execução
 - Primeiramente, copie o arquivo <strong>.env.example</strong> e em sua cópia faça a seguinte configuração na área do MySQL:
@@ -14,15 +14,15 @@ DB_PASSWORD=root<br>
 - Na pasta raíz do projeto e pelo terminal, clone o repositório Laradock através do comando:<br>
  > git clone `git@github.com:laradock/laradock.git`
 
-<p>Em /laradock, faça uma cópia do arquivo <strong>.env.example</strong> chamada <strong>.env</strong> e nela, faça as seguintes alterações:</p>
+- Em /laradock, faça uma cópia do arquivo <strong>.env.example</strong> chamada <strong>.env</strong> e nela, faça as seguintes alterações:</p>
 <strong>Versão do PHP:</strong> 7.4<br>
 <strong>Versão do MySQL:</strong> 5.7<br>
 <strong>Porta do MySQL:</strong> 3306(padrão)<br>
 <strong>Porta do Nginx:</strong> 80(padrão)<br>
 <strong>Banco de dados:</strong> desafio_vesti_alvaro_campos_merlotto<br>
 
-Ainda no diretório /laradock, insira o comando pelo terminal:
-docker-compose build php-fpm workspace
+- Ainda no diretório /laradock, insira o comando pelo terminal:
+ > docker-compose build php-fpm workspace
 
 Assim a versão escolhida  do php será persistida
 
