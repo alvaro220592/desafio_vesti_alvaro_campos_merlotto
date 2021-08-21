@@ -43,7 +43,7 @@ Url base: localhost:80/api
 - Crie uma variável chamada "AccessToken", cujo valor será definido posteriormente
 
 ### Request de login
-- Em body, insira um email e senha válidos
+- Em body, insira um email e senha válidos para essa requisição do tipo POST: `localhost:80/api/login`
 
 ### Nas demais requests
 - Em cada requisição, é necessário que na aba <strong>Autorization</strong>, você selecione "Bearer Token" no tipo e que insira <strong>{{AccessToken}}</strong> no campo de token.
