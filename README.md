@@ -17,9 +17,9 @@ DB_PASSWORD=root<br>
 <p>Em /laradock, faça uma cópia do arquivo <strong>.env.example</strong> chamada <strong>.env</strong> e nela, faça as seguintes alterações:</p>
 <strong>Versão do PHP:</strong> 7.4<br>
 <strong>Versão do MySQL:</strong> 5.7<br>
-Porta do MySQL: 3306(padrão)<br>
-Porta do Nginx: 80(padrão)<br>
-Banco de dados: desafio_vesti_alvaro_campos_merlotto<br>
+<strong>Porta do MySQL:</strong> 3306(padrão)<br>
+<strong>Porta do Nginx:</strong> 80(padrão)<br>
+<strong>Banco de dados:</strong> desafio_vesti_alvaro_campos_merlotto<br>
 
 Ainda no diretório /laradock, insira o comando pelo terminal:
 docker-compose build php-fpm workspace
