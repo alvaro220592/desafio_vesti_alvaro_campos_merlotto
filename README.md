@@ -76,5 +76,5 @@ pm.environment.set("AccessToken", jsonData.access_token);
 Os registros das operações deste sistema, inclusive os relacionados a login/logout são salvos em "/storage/logs/logs_loja.log" e o recurso utilizado para isto é o Monolog, do próprio Laravel
 
 ## Documentação da API
-<https://documenter.getpostman.com/view/14434438/TzzDJEvU>
+https://documenter.getpostman.com/view/14434438/TzzDJEvU
 
