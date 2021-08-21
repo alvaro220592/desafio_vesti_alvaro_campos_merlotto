@@ -24,10 +24,12 @@ git clone git@github.com:laradock/laradock.git
 <strong>Porta do Nginx:</strong> 80(padrão)<br>
 <strong>Banco de dados:</strong> desafio_vesti_alvaro_campos_merlotto<br>
 
-- Ainda no diretório /laradock, insira o comando pelo terminal:
- > docker-compose build php-fpm workspace
+- Ainda no diretório <strong>/laradock</strong>, insira o comando pelo terminal para que a versão escolhida do PHP seja persistida:
+```
+docker-compose build php-fpm workspace
+```
 
-Assim a versão escolhida  do php será persistida
+
 
 Finalmente, execute as imagens:
 ```
