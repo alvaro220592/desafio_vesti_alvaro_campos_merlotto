@@ -1,5 +1,5 @@
 # desafio_vesti_alvaro_campos_merlotto
-Desafio técnico para a elaboração de uma API de cadastro de confecções pelo framework Laravel 8, no ambiente de desenvolvimento Docker(Laradock), pelo servidor web Nginx com autenticação feita com Sanctum através do Laravel Jetstream e Livewire.
+## Desafio técnico para a elaboração de uma API de cadastro de confecções pelo framework Laravel 8, no ambiente de desenvolvimento Docker(Laradock), pelo servidor web Nginx com autenticação feita com Sanctum através do Laravel Jetstream e Livewire.
 
 ## Execução
 Primeiramente, copie o .env.example e em sua cópia faça a seguinte configuração na área do MySQL:
