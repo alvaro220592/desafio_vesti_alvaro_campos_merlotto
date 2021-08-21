@@ -11,11 +11,6 @@ DB_DATABASE=desafio_vesti_alvaro_campos_merlotto
 DB_USERNAME=root
 DB_PASSWORD=root
 ```
- - Atualize as dependências e gere a chave com os seguintes comandos na raíz do projeto:<br>
-```
-composer update
-php artisan key:generate
-```
 
 - Pelo terminal, na pasta raíz do projeto, clone o repositório <strong>Laradock</strong> através do comando:<br>
 ```
@@ -38,7 +33,22 @@ docker-compose build php-fpm workspace
 ```
 docker-compose up -d nginx mysql
 ```
-- Crie um usuário para fazer a autenticação
+
+- Acesse o diretório raíz do projeto pelo workspace. Se estiver usando Windows é possível que tenha que inserir ```winpty``` no início do comando abaixo:
+```docker-compose exec workspace bash```
+
+- Dentro do workspace, atualize as dependências e em seguida, gere a chave de criptorgafia com os seguintes comandos:<br>
+```
+composer update
+php artisan key:generate
+```
+ > <em>Obs:</em> Sempre acesse o projeto pelo Workspace bash
+
+- Crie um usuário para fazer a autenticação. Há uma factory pronta e para executá-la, insira o seguinte comando pelo workspace bash na pasta raíz do projeto:
+```
+php artisan tinker
+\App\Models\User::factory()->create();
+```
 
 ## Utilizando o Postman para as requisições
 ```
@@ -48,7 +58,7 @@ Url base: localhost:80/api
 - Crie uma variável chamada "AccessToken", cujo valor será definido posteriormente
 
 ### Request de login
-- Em body, insira um email e senha válidos para essa requisição do tipo POST pela url: `localhost:80/api/login`
+- Em body, insira um email e senha válidos ou os dados gerados pela factory acima para essa requisição do tipo POST pela url: `localhost:80/api/login`
 
 ### Nas demais requests
 - Na aba <strong>Tests</strong> insira os comandos abaixo para que a variável <strong>AccessToken</strong>, criada acima, receba o valor do token gerado com o login:
