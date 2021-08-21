@@ -3,16 +3,19 @@
 
 ## Execução
 - Primeiramente, copie o arquivo <strong>.env.example</strong> e em sua cópia faça a seguinte configuração na área do MySQL:
-
- > DB_CONNECTION=mysql<br>
+```
+DB_CONNECTION=mysql<br>
 DB_HOST=mysql<br>
 DB_PORT=3306<br>
 DB_DATABASE=desafio_vesti_alvaro_campos_merlotto<br>
 DB_USERNAME=root<br>
 DB_PASSWORD=root<br>
+```
 
 - Na pasta raíz do projeto e pelo terminal, clone o repositório Laradock através do comando:<br>
- > git clone `git@github.com:laradock/laradock.git`
+```
+git clone `git@github.com:laradock/laradock.git`
+```
 
 - Em /laradock, faça uma cópia do arquivo <strong>.env.example</strong> chamada <strong>.env</strong> e nela, faça as seguintes alterações:</p>
 <strong>Versão do PHP:</strong> 7.4<br>
