@@ -154,7 +154,7 @@ class ProductController extends Controller
         // Log de registro de operação:
         $user = auth()->user();
         
-        Log::channel('logs_loja')->info("Efetuada a alteração de um produto:NOME=de \"$old_nome\" para \"$request->nome\", PREÇO=de \"$old_preco\" para \"$request->preco\", COMPOSIÇÃO=de \"$old_composicao\" para \"$request->composicao\", TAMANHO=de \"$old_tamanho\" para \"$request->tamanho\", QUANTIDADE=de \"$old_quantidade\" para \"$request->quantidade\". Usuário: ID=$user->id, NOME=$user->name, EMAIL=$user->email");
+        Log::channel('logs_loja')->info("Efetuada a alteração de um produto:NOME=de \"$old_nome\" para \"$request->nome\", PREÇO=de \"$old_preco\" para \"$request->preco\", COMPOSIÇÃO=de \"$old_composicao\" para \"$request->composicao\", TAMANHO=de \"$old_tamanho\" para \"$request->tamanho\", QUANTIDADE=de \"$old_quantidade\" para \"$request->quantidade\", CATEGORIA=de \"$old_category_id\" para \"$request->category_id\". Usuário: ID=$user->id, NOME=$user->name, EMAIL=$user->email");
 
         if($result){
             return ["result" => "Dados salvos com sucesso!"];
