@@ -43,17 +43,17 @@ Url base: localhost:80/api
 - Crie uma variável chamada "AccessToken", cujo valor será definido posteriormente
 
 ### Request de login
-- Em body, insira um email e senha válidos para essa requisição do tipo POST: `localhost:80/api/login`
+- Em body, insira um email e senha válidos para essa requisição do tipo POST pela url: `localhost:80/api/login`
 
 ### Nas demais requests
-- Em cada requisição, é necessário que na aba <strong>Autorization</strong>, você selecione "Bearer Token" no tipo e que insira <strong>{{AccessToken}}</strong> no campo de token.
-
-- Na aba <strong>Tests</strong> insira os comandos abaixo para que a variável criada acima receba o valor do token gerado com o login:
+- Na aba <strong>Tests</strong> insira os comandos abaixo para que a variável <strong>AccessToken</strong>, criada acima, receba o valor do token gerado com o login:
 ```
 var jsonData = pm.response.json();
 pm.environment.set("AccessToken", jsonData.access_token);
 ```
 <p>Isso poupará o trabalho de inserir <strong>Accept</strong> e <strong>application/json</strong> no </strong>Header</strong> a cada requisição feita.
 
+- Com o usuário já autenticado, para cada requisição a ser feita, é necessário que na aba <strong>Autorization</strong>, você selecione "Bearer Token" no tipo e que insira <strong>{{AccessToken}}</strong> no campo de token para que a requisição em questão receba as credenciais do usuário.
+
 ## Registros de operações
-Os registros das operações deste sistema, inclusive os relacionados a login/logout estão sendo salvos em "/storage/logs/logs_loja.log" e o recurso utilizado para isto é o Monolog, do próprio Laravel
+Os registros das operações deste sistema, inclusive os relacionados a login/logout são salvos em "/storage/logs/logs_loja.log" e o recurso utilizado para isto é o Monolog, do próprio Laravel
