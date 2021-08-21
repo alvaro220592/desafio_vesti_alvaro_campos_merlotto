@@ -14,13 +14,13 @@ DB_PASSWORD=root<br>
 <p>Na pasta raíz do projeto, clone o repositório Laradock:<br>
 git clone git@github.com:laradock/laradock.git</p>
 
-Em /laradock, faça uma cópia do arquivo <strong>.env.example</strong> chamada <strong>.env</strong>
-Faça as seguintes alterações:
-Versão do PHP: 7.4
-Versão do MySQL: 5.7
-Porta do MySQL: 3306(padrão)
-Porta do Nginx: 80(padrão)
-Banco de dados: desafio_vesti_alvaro_campos_merlotto
+<p>Em /laradock, faça uma cópia do arquivo <strong>.env.example</strong> chamada <strong>.env</strong></p>
+<p>Faça as seguintes alterações:</p>
+Versão do PHP: 7.4<br>
+Versão do MySQL: 5.7<br>
+Porta do MySQL: 3306(padrão)<br>
+Porta do Nginx: 80(padrão)<br>
+Banco de dados: desafio_vesti_alvaro_campos_merlotto<br>
 
 Ainda no diretório /laradock, insira o comando pelo terminal:
 docker-compose build php-fpm workspace
