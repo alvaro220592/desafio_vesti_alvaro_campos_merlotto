@@ -12,7 +12,7 @@ DB_USERNAME=root<br>
 DB_PASSWORD=root<br>
 
 <p>Na pasta raíz do projeto, clone o repositório Laradock:</p>
-> git@github.com:laradock/laradock.git
+    > git@github.com:laradock/laradock.git
 
 Em /laradock, faça uma cópia do arquivo .env.example chamada ".env".
 Faça as seguintes alterações:
