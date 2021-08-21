@@ -11,13 +11,18 @@ DB_DATABASE=desafio_vesti_alvaro_campos_merlotto
 DB_USERNAME=root
 DB_PASSWORD=root
 ```
+ - Atualize as dependências e gere a chave com os seguintes comandos na raíz do projeto:<br>
+```
+composer update
+php artisan key:generate
+```
 
-- Na pasta raíz do projeto e pelo terminal, clone o repositório Laradock através do comando:<br>
+- Pelo terminal, na pasta raíz do projeto, clone o repositório <strong>Laradock</strong> através do comando:<br>
 ```
 git clone git@github.com:laradock/laradock.git
 ```
 
-- Em /laradock, faça uma cópia do arquivo <strong>.env.example</strong> chamada <strong>.env</strong> e nela, faça as seguintes alterações:</p>
+- Em <strong>/laradock</strong>, faça uma cópia do arquivo <strong>.env.example</strong> chamada <strong>.env</strong> e nela, faça as seguintes alterações:</p>
 <strong>Versão do PHP:</strong> 7.4<br>
 <strong>Versão do MySQL:</strong> 5.7<br>
 <strong>Porta do MySQL:</strong> 3306(padrão)<br>
