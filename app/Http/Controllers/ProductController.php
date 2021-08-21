@@ -6,6 +6,7 @@ use App\Models\Product;
 use Illuminate\Http\Request;
 use App\Http\Requests\ProductRequest;
 use Illuminate\Support\Facades\Log; // para os logs
+use Illuminate\Support\Facades\File; // para o update das imagens
 
 class ProductController extends Controller
 {
@@ -104,7 +105,7 @@ class ProductController extends Controller
      * @param  \App\Models\Product  $product
      * @return \Illuminate\Http\Response
      */
-    public function update(ProductRequest $request, $id)
+    /* public function update(ProductRequest $request, $id)
     {
         $produto = Product::findOrFail($id);
 
@@ -150,6 +151,69 @@ class ProductController extends Controller
 
         //$produto->save()->request->all();
         $result = $produto->save();
+
+        // Log de registro de operação:
+        $user = auth()->user();
+        
+        Log::channel('logs_loja')->info("Efetuada a alteração de um produto:NOME=de \"$old_nome\" para \"$request->nome\", PREÇO=de \"$old_preco\" para \"$request->preco\", COMPOSIÇÃO=de \"$old_composicao\" para \"$request->composicao\", TAMANHO=de \"$old_tamanho\" para \"$request->tamanho\", QUANTIDADE=de \"$old_quantidade\" para \"$request->quantidade\", CATEGORIA=de \"$old_category_id\" para \"$request->category_id\". Usuário: ID=$user->id, NOME=$user->name, EMAIL=$user->email");
+
+        if($result){
+            return ["result" => "Dados salvos com sucesso!"];
+        }else{
+            return ["result" => "Erro ao alterar"];
+        } 
+    } */
+
+    public function update(ProductRequest $request, $id){
+        $produto = Product::findOrFail($id);
+
+        $old_nome = $produto->nome;
+        $old_preco = $produto->preco;
+        $old_composicao = $produto->composicao;
+        $old_tamanho = $produto->tamanho;
+        $old_quantidade = $produto->quantidade;
+        $old_category_id = $produto->category_id;
+
+        $produto->nome = $request->nome;
+        $produto->preco = $request->preco;
+        $produto->composicao = $request->composicao;
+        $produto->tamanho = $request->tamanho;
+        $produto->quantidade = $request->quantidade;
+        $produto->category_id = $request->category_id;
+
+        // Salvando a imagem        
+        if($request->hasFile('imagens')) {
+
+            $imagens = $request->imagens;
+
+            
+
+            // Esse array abrigará as imagens no final do loop
+            $imagensParaInserir = [];
+
+            // Tratando cada imagem(As validações estão em "App\Http\Requests\ProductRequest")
+            foreach($imagens as $imagem){
+
+                $destino = public_path('imagens'.$produto->imagens);
+                if(File::exists()){
+                    File::delete($destino);
+                }
+
+                // fazendo um nome único e concatenando com a extensão
+                $nome_imagem = rand(0, 5000).strtotime('now') . "." . $imagem->extension();
+
+                // Salvando em uma pasta
+                $imagem->move(public_path('imagens'), $nome_imagem);
+
+                // Inserindo a imagem atual no array criado acima
+                array_push($imagensParaInserir, $nome_imagem);
+            }
+
+            // definindo as imagens que irão para o banco de dados
+            $produto->imagens = $imagensParaInserir;
+        }
+        
+        $result = $produto->update();
 
         // Log de registro de operação:
         $user = auth()->user();
