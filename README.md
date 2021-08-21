@@ -27,8 +27,9 @@ DB_PASSWORD=root<br>
 Assim a versão escolhida  do php será persistida
 
 Finalmente, execute as imagens:
+```
 docker-compose up -d nginx mysql
-
+```
 
 ## Postman
 Host: localhost:80/api
