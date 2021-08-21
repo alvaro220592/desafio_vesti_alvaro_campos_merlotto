@@ -24,32 +24,36 @@ git clone git@github.com:laradock/laradock.git
 <strong>Porta do Nginx:</strong> 80(padrão)<br>
 <strong>Banco de dados:</strong> desafio_vesti_alvaro_campos_merlotto<br>
 
-- Ainda no diretório <strong>/laradock</strong>, insira o comando pelo terminal para que a versão escolhida do PHP seja persistida:
+- Ainda no diretório <strong>/laradock</strong>, insira o seguinte comando pelo terminal, para que a versão escolhida do PHP seja persistida:
 ```
 docker-compose build php-fpm workspace
 ```
 
-
-
-Finalmente, execute as imagens:
+- Finalmente, execute as imagens:
 ```
 docker-compose up -d nginx mysql
 ```
+- Crie um usuário para fazer a autenticação
 
-## Postman
-Host: localhost:80/api
+## Utilizando o Postman para as requisições
+```
+Url base: localhost:80/api
+```
 
-No Postman, crie uma variável chamada "AccessToken", mas sem valor
+- Crie uma variável chamada "AccessToken", cujo valor será definido posteriormente
 
-### Na request de login
-Na aba Headers, insira em "Autorization" em "KEY" e "Bearer (tokenGeradoAoLogar)" em "VALUE"
+### Request de login
+- Em body, insira um email e senha válidos
 
-### Nas requests
-Na aba Autorization, selecione "Bearer Token" no tipo e insira {{AccessToken}} no campo de token.
+### Nas demais requests
+- Em cada requisição, é necessário que na aba <strong>Autorization</strong>, você selecione "Bearer Token" no tipo e que insira <strong>{{AccessToken}}</strong> no campo de token.
 
-Na aba "Tests" insira os comandos abaixo para que o token gerado com o login seja atribuído à variável criada acima:
+- Na aba <strong>Tests</strong> insira os comandos abaixo para que a variável criada acima receba o valor do token gerado com o login:
+```
 var jsonData = pm.response.json();
 pm.environment.set("AccessToken", jsonData.access_token);
+```
+<p>Isso poupará o trabalho de inserir <strong>Accept</strong> e <strong>application/json</strong> no </strong>Header</strong> a cada requisição feita.
 
 ## Registros de operações
 Os registros das operações deste sistema, inclusive os relacionados a login/logout estão sendo salvos em "/storage/logs/logs_loja.log" e o recurso utilizado para isto é o Monolog, do próprio Laravel
