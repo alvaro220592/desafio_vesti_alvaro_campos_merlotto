@@ -35,7 +35,9 @@ docker-compose up -d nginx mysql
 ```
 
 - Acesse o diretório raíz do projeto pelo workspace. Se estiver usando Windows é possível que tenha que inserir ```winpty``` no início do comando abaixo:
-```docker-compose exec workspace bash```
+```
+docker-compose exec workspace bash
+```
 
 - Dentro do workspace, atualize as dependências e em seguida, gere a chave de criptorgafia com os seguintes comandos:<br>
 ```
