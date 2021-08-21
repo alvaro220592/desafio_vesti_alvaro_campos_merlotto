@@ -44,7 +44,7 @@ docker-compose exec workspace bash
 composer update
 php artisan key:generate
 ```
- > <em>Obs:</em> Sempre acesse o projeto pelo Workspace bash
+ > <em>Obs: Sempre acesse o projeto pelo Workspace bash</em>
 
 - Crie um usuário para fazer a autenticação. Há uma factory pronta e para executá-la, insira o seguinte comando pelo workspace bash na pasta raíz do projeto:
 ```
