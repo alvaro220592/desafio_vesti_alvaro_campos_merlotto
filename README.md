@@ -4,12 +4,12 @@
 ## Execução
 <p>Primeiramente, copie o .env.example e em sua cópia faça a seguinte configuração na área do MySQL:</p>
 
-- DB_CONNECTION=mysql
-- DB_HOST=mysql
-- DB_PORT=3306
-- DB_DATABASE=desafio_vesti_alvaro_campos_merlotto
-- DB_USERNAME=root
-- DB_PASSWORD=root
+DB_CONNECTION=mysql<br>
+DB_HOST=mysql<br>
+DB_PORT=3306<br>
+DB_DATABASE=desafio_vesti_alvaro_campos_merlotto<br>
+DB_USERNAME=root<br>
+DB_PASSWORD=root<br>
 
 Na pasta raíz do projeto, clone o repositório Laradock:
 git@github.com:laradock/laradock.git
