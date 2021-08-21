@@ -11,8 +11,8 @@ DB_DATABASE=desafio_vesti_alvaro_campos_merlotto<br>
 DB_USERNAME=root<br>
 DB_PASSWORD=root<br>
 
-<p>Na pasta raíz do projeto, clone o repositório Laradock:</p>
-    > git@github.com:laradock/laradock.git
+<p>Na pasta raíz do projeto, clone o repositório Laradock:
+git@github.com:laradock/laradock.git</p>
 
 Em /laradock, faça uma cópia do arquivo .env.example chamada ".env".
 Faça as seguintes alterações:
