@@ -14,8 +14,7 @@ DB_PASSWORD=root<br>
 - Na pasta raíz do projeto e pelo terminal, clone o repositório Laradock através do comando:<br>
  > git clone `git@github.com:laradock/laradock.git`
 
-<p>Em /laradock, faça uma cópia do arquivo <strong>.env.example</strong> chamada <strong>.env</strong></p>
-<p>Faça as seguintes alterações:</p>
+<p>Em /laradock, faça uma cópia do arquivo <strong>.env.example</strong> chamada <strong>.env</strong> e nela, faça as seguintes alterações:</p>
 Versão do PHP: 7.4<br>
 Versão do MySQL: 5.7<br>
 Porta do MySQL: 3306(padrão)<br>
