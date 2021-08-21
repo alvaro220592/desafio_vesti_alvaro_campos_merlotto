@@ -194,9 +194,11 @@ class ProductController extends Controller
             // Tratando cada imagem(As validações estão em "App\Http\Requests\ProductRequest")
             foreach($imagens as $imagem){
 
-                $destino = public_path('imagens'.$produto->imagens);
-                if(File::exists()){
-                    File::delete($destino);
+                // apagando a imagem cadastrada
+                $arquivo = public_path('imagens/'.$imagem);
+
+                if(File::exists($arquivo)){
+                    File::delete($arquivo);
                 }
 
                 // fazendo um nome único e concatenando com a extensão
